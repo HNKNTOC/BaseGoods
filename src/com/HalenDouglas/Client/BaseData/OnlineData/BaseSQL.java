@@ -20,7 +20,6 @@ public class BaseSQL implements Base {
     private String password;
     private String url;
     private Connection connection;
-    private String error;
     private java.sql.Statement statement=null;
 
     public BaseSQL(String user, String password, String url) {
@@ -35,28 +34,16 @@ public class BaseSQL implements Base {
         url = "jdbc:mysql://localhost:3306";
     }
 
-    @Override
-    public String getError() {
-        return error;
-    }
 
     @Override
-    public boolean connectBase() {
+    public boolean connectBase() throws Exception{
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
 
-        } catch (ClassNotFoundException e) {
-            error = "Не удалось получить драйвер";
-            return false;
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
             System.out.println("Error № "+e.getErrorCode());
-            switch (e.getErrorCode()){
-                case 0:error="Не удалось подключится к серверу"; break;
-                case 1045:error="Неправильно указан логин или пароль!"; break;
-            }
-            return false;
+            throw e;
         }
         return true;
     }

@@ -50,8 +50,4 @@ public class BaseFraud implements Base {
         return false;
     }
 
-    @Override
-    public String getError() {
-        return null;
-    }
 }

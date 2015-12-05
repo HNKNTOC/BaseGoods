@@ -11,7 +11,11 @@ import java.awt.event.ActionListener;
 public class TestFrameMain {
     public static void main(String[] args) {
         Base base = new BaseSQL();
-        base.connectBase();
+        try {
+            base.connectBase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         FrameMain frameMain = new FrameMain("Test",base);
         frameMain.addButtonPanelGoods("Кнопка теста", new testListner());
         frameMain.addButton("Test", new testListner());

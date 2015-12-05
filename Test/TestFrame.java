@@ -14,7 +14,11 @@ public class TestFrame extends JFrame {
 
     public static void main(String args[]){
         Base base = new BaseSQL();
-        base.connectBase();
+        try {
+            base.connectBase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         FrameGoodsEditor frameGoods = new FrameSeller(base);
         frameGoods.start();
     }

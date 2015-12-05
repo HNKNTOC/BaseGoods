@@ -39,7 +39,9 @@ public class FrameLog extends JFrame {
          */
         JPanel panelLog = new JPanel();
         JLabel labLog = new JLabel("Логин");
-        txtFieldLog = new JTextField(16);
+        txtFieldLog = new JTextField("root");
+
+        panelLog.setLayout(new BoxLayout(panelLog,BoxLayout.X_AXIS));
 
 
         panelLog.add(labLog);
@@ -51,13 +53,13 @@ public class FrameLog extends JFrame {
          * Пароль
          */
         JPanel panelPassworld = new JPanel();
-        txtFieldPassword = new JPasswordField(15);
+        txtFieldPassword = new JPasswordField("test");
         JLabel labPassword = new JLabel("Пароль");
 
         panelPassworld.add(labPassword);
         panelPassworld.add(txtFieldPassword);
 
-        panelPassworld.setLayout(new FlowLayout());
+        panelPassworld.setLayout(new BoxLayout(panelPassworld,BoxLayout.X_AXIS));
 
         panelMain.add(panelPassworld);
 
@@ -105,14 +107,14 @@ public class FrameLog extends JFrame {
      */
     private Base createBase(String userName, String password,String ip){
 
-        System.out.println("Создание базы "+userName+" "+password+" "+ip);
+        System.out.println("Создание базы " + userName + " " + password + " " + ip);
 
         Base base = new BaseSQL(userName,password,"jdbc:mysql://"+ip+":3306");
 
-        if(base.connectBase()){
-
-        }else {
-            labAnnotation.setText(base.getError());
+        try {
+            base.connectBase();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
             return null;
         }
 
@@ -128,11 +130,11 @@ public class FrameLog extends JFrame {
         public void actionPerformed(ActionEvent e) {
             Base base = createBase(txtFieldLog.getText(),new String(txtFieldPassword.getPassword()),ip);
 
-            if(base!=null) {
+            if(base==null) {
+                return;
+            }else {
                 setVisible(false);
                 dispose();
-            }else {
-                return;
             }
 
             FrameGoodsEditor frameGoods;

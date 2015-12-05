@@ -53,7 +53,11 @@ public class RandomGoods {
     }
     public static void main(String args[]){
         Base base = new BaseSQL();
-        base.connectBase();
+        try {
+            base.connectBase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         for (int i=0;i<10;i++) {
             base.addGoods(RandomGoods.getGoods());
         }

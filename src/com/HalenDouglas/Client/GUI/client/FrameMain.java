@@ -26,12 +26,6 @@ public class FrameMain extends JFrame implements FrameGoodsEditor {
 
         this.base = base;
 
-        if(base==null){
-            System.out.println("FrameMain null==base");
-            NullPointerException exception = new NullPointerException();
-            exception.printStackTrace();
-        }
-
         panelGoodsElement = new PanelGoodsElement();
         listButtonPaneGoods = new ArrayList<>();
         panelButton = new JPanel();

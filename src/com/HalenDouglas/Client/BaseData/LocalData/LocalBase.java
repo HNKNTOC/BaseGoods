@@ -23,11 +23,6 @@ public class LocalBase implements Base {
     public LocalBase() {
     }
 
-    @Override
-    public String getError() {
-        return null;
-    }
-
     /**
      * Вызывает диалоговое окно для выбора директории.
      */

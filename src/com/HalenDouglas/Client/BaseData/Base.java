@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public interface Base {
 
-    boolean connectBase();
+    boolean connectBase() throws Exception;
     int getSizeBase();
 
     Goods getGoods(String id);
@@ -19,6 +19,4 @@ public interface Base {
     void setGoods(String id);
     boolean addGoods(Goods goods);
     boolean sellGoods(String id);
-
-    String getError();
 }
