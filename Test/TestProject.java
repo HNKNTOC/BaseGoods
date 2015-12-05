@@ -1,4 +1,4 @@
-import com.HalenDouglas.Client.GUI.FrameLog;
+import com.BaseGoods.Client.GUI.FrameLog;
 
 /**
  * Created by HNKNTOC on 04.10.2015.

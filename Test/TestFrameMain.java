@@ -1,6 +1,6 @@
-import com.HalenDouglas.Client.BaseData.Base;
-import com.HalenDouglas.Client.BaseData.OnlineData.BaseSQL;
-import com.HalenDouglas.Client.GUI.client.FrameMain;
+import com.BaseGoods.Client.BaseData.Base;
+import com.BaseGoods.Client.BaseData.OnlineData.BaseSQL;
+import com.BaseGoods.Client.GUI.client.FrameMain;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

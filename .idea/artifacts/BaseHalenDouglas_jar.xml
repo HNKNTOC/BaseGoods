@@ -2,7 +2,7 @@
   <artifact type="jar" name="BaseHalenDouglas:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/BaseHalenDouglas_jar</output-path>
     <root id="archive" name="BaseHalenDouglas.jar">
-      <element id="module-output" name="BaseHalenDouglas" />
+      <element id="module-output" name="BaseGoods" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../More library/mysql-connector-java-5.1.36/mysql-connector-java-5.1.36-bin.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar" path-in-jar="/" />
     </root>

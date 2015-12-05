@@ -1,9 +1,8 @@
 
-import com.HalenDouglas.Client.BaseData.Base;
-import com.HalenDouglas.Client.BaseData.OnlineData.BaseSQL;
-import com.HalenDouglas.Client.GUI.client.FrameGoodsEditor;
-import com.HalenDouglas.Client.GUI.client.manager.FrameManager;
-import com.HalenDouglas.Client.GUI.client.seller.FrameSeller;
+import com.BaseGoods.Client.BaseData.Base;
+import com.BaseGoods.Client.BaseData.OnlineData.BaseSQL;
+import com.BaseGoods.Client.GUI.client.FrameGoodsEditor;
+import com.BaseGoods.Client.GUI.client.seller.FrameSeller;
 
 import javax.swing.*;
 

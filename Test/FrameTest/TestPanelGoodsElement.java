@@ -1,9 +1,7 @@
 package FrameTest;
 
-import com.HalenDouglas.Client.GUI.extraPanel.PanelGoods;
-import com.HalenDouglas.Client.GUI.extraPanel.PanelGoodsElement;
-import com.HalenDouglas.Client.Logic.Goods;
-import com.HalenDouglas.Client.Logic.RandomGoods;
+import com.BaseGoods.Client.GUI.extraPanel.PanelGoodsElement;
+import com.BaseGoods.Client.Logic.RandomGoods;
 
 import javax.swing.*;
 

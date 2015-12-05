@@ -1,5 +1,5 @@
-import com.HalenDouglas.Client.GUI.extraPanel.PanelGoods;
-import com.HalenDouglas.Client.Logic.RandomGoods;
+import com.BaseGoods.Client.GUI.extraPanel.PanelGoods;
+import com.BaseGoods.Client.Logic.RandomGoods;
 
 import javax.swing.*;
 import java.awt.*;
