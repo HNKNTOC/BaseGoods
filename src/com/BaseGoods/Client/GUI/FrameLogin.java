@@ -5,14 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Created by HNKNTOC on 23.07.2015.
+ * FrameLogin нужен для ввода логина и пароля
  */
 public class FrameLogin extends JFrame {
     private JTextField txtFieldLog;
     private JPasswordField txtFieldPassword;
 
     private JButton butLog;
-    private JButton butSetting;
+    private JButton butSettings;
 
     private JLabel labAnnotation;
     public static String ip = "localhost";
@@ -23,7 +23,7 @@ public class FrameLogin extends JFrame {
         txtFieldLog = new JTextField("root");
         txtFieldPassword = new JPasswordField("test");
 
-        butSetting = new JButton("Setting");
+        butSettings = new JButton("Setting");
         butLog = new JButton("Вход");
     }
 
@@ -54,15 +54,15 @@ public class FrameLogin extends JFrame {
         /**
          * Пароль
          */
-        JPanel panelPassworld = new JPanel();
+        JPanel panelPassword = new JPanel();
         JLabel labPassword = new JLabel("Пароль");
 
-        panelPassworld.add(labPassword);
-        panelPassworld.add(txtFieldPassword);
+        panelPassword.add(labPassword);
+        panelPassword.add(txtFieldPassword);
 
-        panelPassworld.setLayout(new BoxLayout(panelPassworld, BoxLayout.X_AXIS));
+        panelPassword.setLayout(new BoxLayout(panelPassword, BoxLayout.X_AXIS));
 
-        panelMain.add(panelPassworld);
+        panelMain.add(panelPassword);
 
 
         /**
@@ -73,7 +73,7 @@ public class FrameLogin extends JFrame {
         add(BorderLayout.SOUTH, panelBut);
 
         panelBut.add(butLog);
-        panelBut.add(butSetting);
+        panelBut.add(butSettings);
 
 
 
@@ -89,8 +89,16 @@ public class FrameLogin extends JFrame {
         butLog.addActionListener(listener);
     }
 
-    public void addListenerSeting(ActionListener listener){
-        butSetting.addActionListener(listener);
+    public void addListenerSettings(ActionListener listener){
+        butSettings.addActionListener(listener);
+    }
+
+    /**
+     * Выводит на FrameLogin оповещение для пользователя.
+     * @param notice текст оповишения.
+     */
+    public void newNotice(String notice){
+        labAnnotation.setText(notice);
     }
 
     public String getUserName(){
@@ -101,4 +109,8 @@ public class FrameLogin extends JFrame {
         return new String(txtFieldPassword.getPassword());
     }
 
+    public void stop() {
+        setVisible(false);
+        dispose();
+    }
 }

@@ -1,12 +1,14 @@
 package com.BaseGoods.Client.BaseData;
 
 import com.BaseGoods.Client.Logic.Goods;
+import com.BaseGoods.Client.ProgramSetting;
 
+import javax.swing.*;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
- * Created by HNKNTOC on 17.01.2016.
+ * Фасад для работы с базой
  */
 public class BaseFacade {
     private Base base;
@@ -15,15 +17,17 @@ public class BaseFacade {
         this.base = base;
     }
 
-    public boolean connect(){
+    public boolean connect(String name,String password){
         try {
-            base.connectBase();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            base.connectBase(name,password);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,e.getMessage());
+            return false;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return false;
         }
-        return false;
+        return true;
     }
 
     public HashMap<String,Goods> getAllGoods(){

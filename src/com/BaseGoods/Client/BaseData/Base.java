@@ -14,7 +14,7 @@ public interface Base {
      * Подключение к базе данных.
      * @throws SQLException , ClassNotFoundException
      */
-    void connectBase() throws SQLException,ClassNotFoundException;
+    void connectBase(String name,String passwoed) throws SQLException,ClassNotFoundException;
 
     /**
      * Закрытие подключения

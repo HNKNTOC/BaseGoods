@@ -5,11 +5,8 @@ package com.BaseGoods.Client.BaseData.OnlineData;
 import com.BaseGoods.Client.BaseData.Base;
 import com.BaseGoods.Client.Logic.Goods;
 import com.BaseGoods.Client.ProgramSetting;
-import org.omg.CosNaming.NamingContextPackage.NotFound;
 
 
-import javax.swing.*;
-import java.awt.*;
 import java.sql.*;
 import java.util.HashMap;
 
@@ -17,29 +14,23 @@ import java.util.HashMap;
  * Created connectBase
  */
 public class BaseSQL implements Base {
-    private String user;
-    private String password;
     private String url;
     private Connection connection;
     private java.sql.Statement statement=null;
 
-    public BaseSQL(String user, String password, String url) {
-        this.user = user;
-        this.password = password;
+    public BaseSQL(String url) {
         this.url = url;
     }
 
     public BaseSQL() {
-        user = "root";
-        password = "test";
-        url = "jdbc:mysql://"+ ProgramSetting.connect.IP+":"+ProgramSetting.connect.PORT;
+        url = "jdbc:mysql://"+ ProgramSetting.Connect.IP+":"+ ProgramSetting.Connect.PORT;
     }
 
 
     @Override
-    public void connectBase() throws SQLException,ClassNotFoundException{
+    public void connectBase(String name,String passwoed) throws SQLException,ClassNotFoundException{
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection(url, name, passwoed);
     }
 
     public Goods getGoods(String id){

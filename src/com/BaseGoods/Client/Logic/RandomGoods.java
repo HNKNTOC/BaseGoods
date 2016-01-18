@@ -6,6 +6,7 @@ import com.BaseGoods.Client.Logic.attributes.TypeAttributes;
 import com.BaseGoods.Client.BaseData.OnlineData.BaseSQL;
 import com.BaseGoods.Client.Logic.attributes.StateAttributes;
 import com.BaseGoods.Client.Logic.generator.Id;
+import com.BaseGoods.Client.ProgramSetting;
 
 /**
  * Created by HNKNTOC on 03.08.2015.
@@ -54,7 +55,7 @@ public class RandomGoods {
     public static void main(String args[]){
         Base base = new BaseSQL();
         try {
-            base.connectBase();
+            base.connectBase("root","test");
         } catch (Exception e) {
             e.printStackTrace();
         }
