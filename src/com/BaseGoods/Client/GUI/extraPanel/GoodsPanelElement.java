@@ -1,6 +1,5 @@
 package com.BaseGoods.Client.GUI.extraPanel;
 
-import com.BaseGoods.Client.Logic.Goods;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,11 +9,11 @@ import java.util.HashMap;
 /**
  * Created by HNKNTOC on 18.10.2015.
  */
-public class PanelGoodsElement extends JPanel {
-    private HashMap<String,PanelGoods> listPanelGoods = new HashMap<>();
+public class GoodsPanelElement extends JPanel {
+    private HashMap<String,GoodsPanel> listPanelGoods = new HashMap<>();
     private JScrollPane scrollPaneGoodsElement;
 
-    public PanelGoodsElement() {
+    public GoodsPanelElement() {
         settingsPanel();
     }
 
@@ -29,12 +28,12 @@ public class PanelGoodsElement extends JPanel {
         return scrollPaneGoodsElement;
     }
 
-    public void addPanelGoods(PanelGoods panelGoods){
+    public void addPanelGoods(GoodsPanel panelGoods){
         listPanelGoods.put(panelGoods.getGoods().getId(), panelGoods);
     }
 
-    public void addGoods(Goods goods){
-        listPanelGoods.put(goods.getId(), new PanelGoods(goods));
+    public void addGoodsPanel(GoodsPanel goodsPanel){
+        listPanelGoods.put(goodsPanel.getGoods().getId(),goodsPanel);
     }
 
     public void removeGoods(String id){
@@ -45,21 +44,21 @@ public class PanelGoodsElement extends JPanel {
         listPanelGoods.clear();
     }
 
-    public Collection<PanelGoods> getAllPanelGoods(){
+    public Collection<GoodsPanel> getAllPanelGoods(){
         return listPanelGoods.values();
     }
 
 
 
     public void update(){
-        for(PanelGoods panelGoods:listPanelGoods.values()){
+        for(GoodsPanel panelGoods:listPanelGoods.values()){
             add(panelGoods);
         }
     }
 
 
     /**
-     * В зависимости от размера Frame изменяет колонки в PanelGoodsElement
+     * В зависимости от размера Frame изменяет колонки в GoodsPanelElement
      */
     public void updateForm(int width) {
         if (width > 800) {

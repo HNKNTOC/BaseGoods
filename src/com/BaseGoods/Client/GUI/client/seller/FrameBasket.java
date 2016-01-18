@@ -1,8 +1,7 @@
 package com.BaseGoods.Client.GUI.client.seller;
 
-import com.BaseGoods.Client.BaseData.Base;
-import com.BaseGoods.Client.GUI.extraPanel.PanelGoodsElement;
-import com.BaseGoods.Client.Logic.Goods;
+import com.BaseGoods.Client.GUI.extraPanel.GoodsPanelElement;
+import com.BaseGoods.Client.Logic.storage.StorageGoods;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,12 +14,12 @@ import java.util.ArrayList;
 public class FrameBasket extends JFrame{
 
     private static ArrayList<String> listIdGoods = new ArrayList<>();
-    private Base base;
-    private PanelGoodsElement panelGoodsElement = new PanelGoodsElement();
+    private StorageGoods storageGoods;
+    private GoodsPanelElement panelGoodsElement = new GoodsPanelElement();
 
-    public FrameBasket(Base base) {
+    public FrameBasket(StorageGoods storageGoods) {
         super("Корзина");
-        this.base=base;
+        this.storageGoods =storageGoods;
         settingsGUI();
     }
 
@@ -35,10 +34,10 @@ public class FrameBasket extends JFrame{
 
     public  boolean addIdGoods(String id){
         listIdGoods.add(id);
-        Goods goods = base.getGoods(id);
+        //Goods goods = storageGoods.getAllPanelGoodsElement();
 
-        if(goods==null) System.out.println("goods==null");
-        panelGoodsElement.addGoods(goods);
+        //if(goods==null) System.out.println("goods==null");
+        //panelGoodsElement.addGoodsPanel(goods);
 
         return true;
     }
@@ -51,7 +50,7 @@ public class FrameBasket extends JFrame{
             panelGoodsElement.removeAllGoods();
             repaint();
             for (String id:listIdGoods) {
-                base.sellGoods(id);
+                //storageGoods.sellGoods(id);
             }
         }
     }

@@ -1,7 +1,8 @@
 package com.BaseGoods.Client.GUI.client.manager;
 
-import com.BaseGoods.Client.BaseData.Base;
+
 import com.BaseGoods.Client.GUI.client.FrameMain;
+import com.BaseGoods.Client.Logic.storage.StorageGoods;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,10 +11,10 @@ import java.awt.event.ActionListener;
  * Created by HNKNTOC on 05.09.2015.
  */
 public class FrameManager extends FrameMain{
-    Base base;
-    public FrameManager(Base base) {
-        super("Панель администратора",base);
-        this.base=base;
+    StorageGoods storageGoods;
+    public FrameManager(StorageGoods storageGoods) {
+        super("Панель администратора",storageGoods);
+        this.storageGoods =storageGoods;
         settingsGUI();
         update();
         start();
@@ -31,7 +32,7 @@ public class FrameManager extends FrameMain{
     private class ClickAdd implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            FrameAdd panelAddGoods = new FrameAdd(base);
+            FrameAdd panelAddGoods = new FrameAdd(storageGoods);
             panelAddGoods.goGUI();
         }
     }
@@ -39,8 +40,9 @@ public class FrameManager extends FrameMain{
     private class ClickSearch implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            FrameSearch panelSearch = new FrameSearch(base.getAllGoods());
-            panelSearch.goGui();
+            // ИСПРАВИТЬ!!!
+            //FrameSearch panelSearch = new FrameSearch();
+            //panelSearch.goGui();
         }
     }
 

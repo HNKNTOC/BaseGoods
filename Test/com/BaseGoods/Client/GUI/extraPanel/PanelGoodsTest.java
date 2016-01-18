@@ -14,7 +14,7 @@ public class PanelGoodsTest {
     @Test
     public void testGetGoods() throws Exception {
         Goods goods = RandomGoods.getGoods();
-        PanelGoods panelGoods = new PanelGoods(goods);
+        GoodsPanel panelGoods = new GoodsPanel(goods);
         System.out.println(goods.toString());
         System.out.println(panelGoods.getGoods().toString());
         assertTrue(goods.toString().equals(panelGoods.getGoods().toString()));

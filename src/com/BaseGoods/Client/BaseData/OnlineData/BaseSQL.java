@@ -4,8 +4,12 @@ package com.BaseGoods.Client.BaseData.OnlineData;
 
 import com.BaseGoods.Client.BaseData.Base;
 import com.BaseGoods.Client.Logic.Goods;
+import com.BaseGoods.Client.ProgramSetting;
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 
 
+import javax.swing.*;
+import java.awt.*;
 import java.sql.*;
 import java.util.HashMap;
 
@@ -28,21 +32,14 @@ public class BaseSQL implements Base {
     public BaseSQL() {
         user = "root";
         password = "test";
-        url = "jdbc:mysql://localhost:3306";
+        url = "jdbc:mysql://"+ ProgramSetting.connect.IP+":"+ProgramSetting.connect.PORT;
     }
 
 
     @Override
-    public boolean connectBase() throws Exception{
-        try {
+    public void connectBase() throws SQLException,ClassNotFoundException{
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
-
-        }catch (SQLException e){
-            System.out.println("Error № "+e.getErrorCode());
-            throw e;
-        }
-        return true;
     }
 
     public Goods getGoods(String id){
@@ -127,18 +124,13 @@ public class BaseSQL implements Base {
         return true;
     }
 
-    public Connection getConnection() {
-        return connection;
-    }
-
-    public boolean close(){
+    @Override
+    public void close(){
         try {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
-        return true;
     }
 
     @Override

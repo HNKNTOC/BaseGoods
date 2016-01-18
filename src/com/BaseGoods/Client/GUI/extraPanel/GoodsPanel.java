@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by HNKNTOC on 25.07.2015.
  */
-public class PanelGoods extends JPanel{
+public class GoodsPanel extends JPanel{
     private String name;
     private String collection;
     private String typ;
@@ -39,7 +39,7 @@ public class PanelGoods extends JPanel{
     private JPanel panelImage = new JPanel();
     private JPanel panelBut = new JPanel();
 
-    public PanelGoods(Goods goods) {
+    public GoodsPanel(Goods goods) {
 
 
         name = goods.getName();
@@ -115,7 +115,7 @@ public class PanelGoods extends JPanel{
     }
 
     /**
-     * Добавляет кнопку на PanelGoods
+     * Добавляет кнопку на GoodsPanel
      *
      * @param name
      * @param listener

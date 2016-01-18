@@ -2,6 +2,7 @@ package com.BaseGoods.Client.GUI.client.seller;
 
 import com.BaseGoods.Client.BaseData.Base;
 import com.BaseGoods.Client.GUI.client.FrameMain;
+import com.BaseGoods.Client.Logic.storage.StorageGoods;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,9 +13,9 @@ import java.awt.event.ActionListener;
 public class FrameSeller extends FrameMain{
     static public FrameBasket frameBasket;
 
-    public FrameSeller(Base base) {
-        super("Панель продавца", base);
-        frameBasket = new FrameBasket(base);
+    public FrameSeller(StorageGoods storageGoods) {
+        super("Панель продавца", storageGoods);
+        frameBasket = new FrameBasket(storageGoods);
         settingsGUI();
         start();
     }

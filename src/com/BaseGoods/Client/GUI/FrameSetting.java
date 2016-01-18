@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 /**
  * Created by HNKNTOC on 01.09.2015.
  */
-public class FrameIp extends JFrame {
+public class FrameSetting extends JFrame {
     JTextField jTextField;
-    public void go(){
+    public void start(){
 
         jTextField = new JTextField();
         JButton button = new JButton("Ok");
@@ -30,7 +30,7 @@ public class FrameIp extends JFrame {
     private class ClickOk implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            FrameLog.ip=jTextField.getText();
+            FrameLogin.ip=jTextField.getText();
 
             setVisible(false);
             dispose();

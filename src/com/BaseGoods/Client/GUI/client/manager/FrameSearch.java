@@ -1,6 +1,6 @@
 package com.BaseGoods.Client.GUI.client.manager;
 
-import com.BaseGoods.Client.GUI.extraPanel.PanelGoods;
+import com.BaseGoods.Client.GUI.extraPanel.GoodsPanel;
 import com.BaseGoods.Client.Logic.Goods;
 import com.BaseGoods.Client.Logic.GoodsSearch;
 import com.BaseGoods.Client.Logic.attributes.CollectionAttributes;
@@ -56,7 +56,7 @@ public class FrameSearch extends JFrame {
          * Скрол для panelResult
          */
         JScrollPane scrollResult = new JScrollPane(panelResult);
-        panelResult.add(new PanelGoods(new Goods()));
+        panelResult.add(new GoodsPanel(new Goods()));
 
         /**
          * Поиск but
@@ -217,7 +217,7 @@ public class FrameSearch extends JFrame {
             panelResult.removeAll();
 
             for (Goods goods:goodsFoundList.values()) {
-                panelResult.add(new PanelGoods(goods));
+                panelResult.add(new GoodsPanel(goods));
             }
             revalidate();
 

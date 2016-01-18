@@ -1,6 +1,7 @@
 package FrameTest;
 
-import com.BaseGoods.Client.GUI.extraPanel.PanelGoodsElement;
+import com.BaseGoods.Client.GUI.extraPanel.GoodsPanel;
+import com.BaseGoods.Client.GUI.extraPanel.GoodsPanelElement;
 import com.BaseGoods.Client.Logic.RandomGoods;
 
 import javax.swing.*;
@@ -11,10 +12,10 @@ import javax.swing.*;
 public class TestPanelGoodsElement extends JFrame {
 
     public void go(){
-        PanelGoodsElement panelGoodsElement = new PanelGoodsElement();
-        panelGoodsElement.addGoods(RandomGoods.getGoods());
-        panelGoodsElement.addGoods(RandomGoods.getGoods());
-        panelGoodsElement.addGoods(RandomGoods.getGoods());
+        GoodsPanelElement panelGoodsElement = new GoodsPanelElement();
+        panelGoodsElement.addGoodsPanel(new GoodsPanel(RandomGoods.getGoods()));
+        panelGoodsElement.addGoodsPanel(new GoodsPanel(RandomGoods.getGoods()));
+        panelGoodsElement.addGoodsPanel(new GoodsPanel(RandomGoods.getGoods()));
 
         add(panelGoodsElement.getScrollPaneGoodsElement());
         panelGoodsElement.update();

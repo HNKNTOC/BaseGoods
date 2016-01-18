@@ -1,4 +1,4 @@
-import com.BaseGoods.Client.GUI.extraPanel.PanelGoods;
+import com.BaseGoods.Client.GUI.extraPanel.GoodsPanel;
 import com.BaseGoods.Client.Logic.RandomGoods;
 
 import javax.swing.*;
@@ -23,7 +23,7 @@ public class TestPanelGoods extends JFrame {
         listButton.add(new JButton("Кнопка 1"));
 
         for (int i=0;i<5;i++) {
-            PanelGoods panelGoods = new PanelGoods(RandomGoods.getGoods());
+            GoodsPanel panelGoods = new GoodsPanel(RandomGoods.getGoods());
 
         }
 

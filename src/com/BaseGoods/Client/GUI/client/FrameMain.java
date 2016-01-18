@@ -1,10 +1,10 @@
 package com.BaseGoods.Client.GUI.client;
 
 
-import com.BaseGoods.Client.BaseData.Base;
-import com.BaseGoods.Client.GUI.extraPanel.PanelGoods;
-import com.BaseGoods.Client.GUI.extraPanel.PanelGoodsElement;
+import com.BaseGoods.Client.GUI.extraPanel.GoodsPanel;
+import com.BaseGoods.Client.GUI.extraPanel.GoodsPanelElement;
 import com.BaseGoods.Client.Logic.Goods;
+import com.BaseGoods.Client.Logic.storage.StorageGoods;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,17 +16,17 @@ import java.util.ArrayList;
  */
 public class FrameMain extends JFrame implements FrameGoodsEditor {
 
-    private Base base;
+    private StorageGoods storageGoods;
     private JPanel panelButton; //Нижняя напель с кнопками
     private ArrayList<JButton> listButtonPaneGoods; // Лист с кнопками для GoodsPanel
-    private PanelGoodsElement panelGoodsElement; //Панель в которую поменяются Goods для отображения
+    private GoodsPanelElement panelGoodsElement; //Панель в которую поменяются Goods для отображения
 
-    public FrameMain(String name, Base base) {
+    public FrameMain(String name, StorageGoods storageGoods) {
         super(name);
 
-        this.base = base;
+        this.storageGoods = storageGoods;
 
-        panelGoodsElement = new PanelGoodsElement();
+        panelGoodsElement = new GoodsPanelElement();
         listButtonPaneGoods = new ArrayList<>();
         panelButton = new JPanel();
         defaultSettingGUI();
@@ -91,11 +91,11 @@ public class FrameMain extends JFrame implements FrameGoodsEditor {
      */
     @Override
     public boolean update() {
-        if (base == null) return false;
+        if (storageGoods == null) return false;
 
         panelGoodsElement.removeAllGoods();
-        for (Goods goods : base.getAllGoods().values()) {
-            panelGoodsElement.addGoods(goods);
+        for (Goods goods : storageGoods.getAllGoods().values()) {
+            panelGoodsElement.addGoodsPanel(new GoodsPanel(goods));
         }
 
 
@@ -114,14 +114,14 @@ public class FrameMain extends JFrame implements FrameGoodsEditor {
     }
 
     /**
-     * Обновление JButton в PanelGoods из листа listPanelGoods.
+     * Обновление JButton в GoodsPanel из листа listPanelGoods.
      *
      * Создаём копию JButton из списка listButtonPaneGoods
      * Помешаем копию в каждую panelGoods из списка listPanelGoods
      */
     private void updateButtonPanelGoods() {
         for(JButton buttonA:listButtonPaneGoods){
-            for(PanelGoods panelGoods:panelGoodsElement.getAllPanelGoods()){
+            for(GoodsPanel panelGoods:panelGoodsElement.getAllPanelGoods()){
                 JButton buttonB = new JButton(buttonA.getText());
                 for(ActionListener listener:buttonA.getActionListeners()){
                     buttonB.addActionListener(listener);

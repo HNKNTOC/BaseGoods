@@ -1,11 +1,10 @@
 package com.BaseGoods.Client.GUI.client.manager;
 
-import com.BaseGoods.Client.BaseData.Base;
-import com.BaseGoods.Client.Logic.Goods;
+
 import com.BaseGoods.Client.Logic.attributes.CollectionAttributes;
-import com.BaseGoods.Client.Logic.attributes.StateAttributes;
 import com.BaseGoods.Client.Logic.attributes.TypeAttributes;
 import com.BaseGoods.Client.Logic.generator.Id;
+import com.BaseGoods.Client.Logic.storage.StorageGoods;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,12 +27,12 @@ public class FrameAdd extends JFrame {
 
 
 
-    private Base base;
+    private StorageGoods storageGoods;
 
-    public FrameAdd(Base base){
+    public FrameAdd(StorageGoods storageGoods){
         super("Добавить товар");
-        this.base=base;
-        this.sizeBase=base.getSizeBase()+1;
+        this.storageGoods =storageGoods;
+        this.sizeBase=storageGoods.getAllGoods().size()+2;
 
     }
 
@@ -137,9 +136,8 @@ public class FrameAdd extends JFrame {
             String id = Id.getId(sizeBase,comboBoxType.getSelectedItem().toString(),
                     comboBoxCollection.getSelectedItem().toString());
 
-            Goods goods = new Goods(textFieldName.getText(),id,comboBoxCollection.getSelectedItem().toString(),
-                    comboBoxType.getSelectedItem().toString(), StateAttributes.IN_STOCK,cost,"no_image.png");
-            base.addGoods(goods);
+            /*storageGoods.newGoods(textFieldName.getText(), id, comboBoxCollection.getSelectedItem().toString(),
+                    comboBoxType.getSelectedItem().toString(), StateAttributes.IN_STOCK, cost, "no_image.png");*/
 
             setVisible(false);
             dispose();

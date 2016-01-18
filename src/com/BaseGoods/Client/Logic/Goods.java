@@ -1,6 +1,5 @@
 package com.BaseGoods.Client.Logic;
 
-import javax.swing.*;
 import java.io.Serializable;
 
 /**
